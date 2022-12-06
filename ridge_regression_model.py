@@ -71,16 +71,22 @@ def predict(samples: np.ndarray, thetas_coefficients: np.ndarray) -> np.ndarray:
 if __name__ == '__main__':
     # change ratio if needed (current is 1:10, test:train)
     train_ratio = 0.9
-    # change label column name if needed "Branch" "N.1" "Unnamed: 2"
-    label_column_name = "Branch"
+    # change label column name if needed "Branch" "N.1" "Unnamed: 2" "Unnamed: 1" "I0"
+    label_column_name = "N.1"
+    learning_rate = 0.1
     # change read_excel(input_file_path) if needed
     data = read_excel(
-        input_file_path="./input_data/firms.xls"
+        # input_file_path="./input_data/Breast+Tissue.xls"
+        # input_file_path="./input_data/FHR-Apgar.xls"
+        # input_file_path="./input_data/Clays.xls"
+        # input_file_path="./input_data/firms.xls"
         # input_file_path="./input_data/Wines.xls", sheet_name="DATA"
     )
+    # data = data.iloc[2:]
     # data = data.drop(data.columns[0], axis=1)
 
     data = data[:].replace(' ', np.nan)
+    # data = data.dropna(axis=1)
     data = data.dropna()
     data = data.astype('float64')
 
@@ -106,7 +112,7 @@ if __name__ == '__main__':
     print("\n----test labels----")
     print(test_labels)
 
-    thetas = fit(train, train_labels, 0.1)
+    thetas = fit(train, train_labels, learning_rate)
     print("\n----thetas----")
     print(thetas)
 

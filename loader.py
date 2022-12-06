@@ -9,7 +9,6 @@ def read_excel(input_file_path="./input_data/Cork+Stoppers.xlsx", sheet_name="Da
     :param input_file_path: The path to the input file, defaults to ./input_data/Cork+Stoppers.xlsx (optional)
     """
     data = pd.read_excel(input_file_path, sheet_name, index_col=0)
-    data = data.dropna()
     print("-------------------------------input data----------------------------------------")
     print(data)
     return data
