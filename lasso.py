@@ -36,7 +36,7 @@ def add_one(X):
         X = np.expand_dims(X, axis=0)
     return np.concatenate([np.ones([X.shape[0], 1]), X], axis=1)
 
-X, Y = read_data_cork("Cork+Stoppers.xlsx", "Data")
+X, Y = read_data_cork("./input_data/Cork+Stoppers.xlsx", "Data")
 X = add_one(X)
 
 
